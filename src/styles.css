@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-color:#ecf0f3 ;
+}
+
+div{
+    width: 400px;
+    height:auto;
+    background-color:#ecf0f3;
+    border-radius: 40px;
+    box-shadow: 10px 10px 17px #cbced1, -10px -10px 17px rgb(255, 255, 255);
+    padding: 10px;
+    margin-top: 50px;
+}
+#loginacno,#loginpass,#regname,#regacno,#regpass{
+    width: 350px;
+    height:50px;
+     background-color: #ecf0f3; 
+     border: none;
+     border-radius: 20px;
+     box-shadow:inset 8px 8px 8px #cbced1,inset -8px -8px 8px #fff;
+}
+#login,#register{
+
+    width: 355px;
+    height: 50px;
+    background-color: #02c8db;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow:inset 3px 3px 8px #02c8db,inset -3px -3px 8px #02c8db;
+    cursor: pointer;
+    font-family: "lato",sans-serif;
+    font-size: 18px;
+
+}
+#login:hover{
+    background-color: #50e5b9;
+}
+#register:hover{
+    background-color: #50e5b9;
+}
+
+a{
+    text-decoration: none;
+    color: #aaa;
+    font-size: 20px;
+}
+#loginacno,#loginpass,#regname,#regacno,#regpass::placeholder{
+    align-items: center;
+    
+}
+#logo{
+    width:50px;
+    height:50px;
+    margin-top: 10px;
+    border: 3px solid #ecf0f3;
+    background-color:#ecf0f3;
+    box-shadow: 8px 8px 8px #cbced1, -3px -3px 8px #fff;
+    margin-left: 40%;
+}
+
+#main{
+  text-align: center; 
+  margin-left: 35%; 
+}
+
+
+
+
