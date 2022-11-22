@@ -34,3 +34,5 @@ Basic concepts
             i) Event binding (1 direction) -> syntax : (event_name)="function_name"
 
             ii) Event binding using $event -> syntax : (event_name)="function_name($event)"
+
+            iii) Event binding using template referencing variable -> syntax : #variable_name
