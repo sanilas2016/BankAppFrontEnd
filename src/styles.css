@@ -19,7 +19,7 @@ div{
      border-radius: 20px;
      box-shadow:inset 8px 8px 8px #cbced1,inset -8px -8px 8px #fff;
 }
-#login,#register{
+#login,#register,#deposit{
 
     width: 355px;
     height: 50px;
@@ -57,12 +57,14 @@ a{
     background-color:#ecf0f3;
     box-shadow: 8px 8px 8px #cbced1, -3px -3px 8px #fff;
     margin-left: 40%;
+    border-radius: 50px;
 }
 
 #main{
   text-align: center; 
   margin-left: 35%; 
 }
+
 
 
 

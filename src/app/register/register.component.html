@@ -6,10 +6,10 @@
 
      <h1>My Bank</h1>
 
-     <input type="text" id="regname"  placeholder="     Username"><br><br><br>
-     <input type="text" id="regacno"  placeholder="     Account number"><br><br><br>
-     <input type="password" id="regpass"  placeholder="     Password"><br><br><br>
+     <input [(ngModel)]="uname" type="text" id="regname"  placeholder="     Username"><br><br><br>
+     <input [(ngModel)]="acno" type="text" id="regacno"  placeholder="     Account number"><br><br><br>
+     <input [(ngModel)]="pswd" type="password" id="regpass"  placeholder="     Password"><br><br><br>
 
-<button class="btn" type="button" id="register" onclick="register()">Register</button><br><br>
-<a href="./index.html">Sign in</a>
+<button class="btn" type="button" id="register" (click)="register()">Register</button><br><br>
+<a routerLink="">Sign in</a>
  </div>

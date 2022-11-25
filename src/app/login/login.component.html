@@ -10,12 +10,13 @@
     <h1>My Bank</h1>
     <p>{{aim}}</p>
 
-    <input #acno type="text" id="loginacno" [placeholder]="     account"><br><br><br>
-    <input #pswd type="password" id="loginpass"  [placeholder]="     password"><br><br><br>
-    <button type="button" id="login" (click)="login(acno,pswd)">Login</button><br><br>
-    <a href="#">Forgot password?</a> or <a href="./signup.html">Sign up</a>
+    <input [(ngModel)]="acno" type="text" id="loginacno" [placeholder]="     account"><br><br><br>
+    <input [(ngModel)]="pswd" type="password" id="loginpass"  [placeholder]="     password"><br><br><br>
+    <button type="button" id="login" (click)="login()">Login</button><br><br>
+    <a href="#">Forgot password?</a> or <a routerLink="register">Sign up</a>
 
 
 
 
 </div>
+

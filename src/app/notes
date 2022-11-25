@@ -36,3 +36,35 @@ Basic concepts
             ii) Event binding using $event -> syntax : (event_name)="function_name($event)"
 
             iii) Event binding using template referencing variable -> syntax : #variable_name
+
+    b) Tow way data binding (2 direction) => ts -> html , html -> ts
+
+        i) ngModel -> formsModule in app.Module.ts  => [(ngModule)]
+
+2) Angular Routing
+
+    To set path for a component
+
+    {
+        path:"value",component:class_name
+    }
+
+        eg:
+
+            login
+            {
+               path:'',component:LoginComponent 
+            },
+
+3) Dependency injection
+
+    To share data b/w two dependent classes
+
+        constructor(private router:Router)
+
+            eg : Router class - navigateByUrl is used to navigate the component
+
+4) Angular services
+
+    To hold reduntent data  (ng g s serve_name)
+
