@@ -17,10 +17,11 @@ export class RegisterComponent implements OnInit {
 
 
   registerForm=this.fb.group({
-    
+
     uname:[''],
     acno:[''],
     pswd:['']
+    
   })
 
   constructor(private router:Router,private ds:DataService,private fb:FormBuilder) { }
