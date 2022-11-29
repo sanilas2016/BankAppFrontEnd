@@ -75,6 +75,7 @@ Basic concepts
     b) Structural directives(table)
 
                 1) *ngFor
+                2) ngIf
 
 6) Angular formsModule
 

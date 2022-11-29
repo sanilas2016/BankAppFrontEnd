@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -18,11 +18,14 @@ export class RegisterComponent implements OnInit {
 
   registerForm=this.fb.group({
 
-    uname:[''],
-    acno:[''],
-    pswd:['']
-    
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
+
   })
+
+
+  
 
   constructor(private router:Router,private ds:DataService,private fb:FormBuilder) { }
 
@@ -38,8 +41,12 @@ export class RegisterComponent implements OnInit {
     var password=this.registerForm.value.pswd;
     var acno=this.registerForm.value.acno;
 
+    if(this.registerForm.valid){
 
-    var result=this.ds.register(acno,username,password);
+      console.log(this.registerForm.get('uname')?.errors);
+      
+
+    const result=this.ds.register(acno,username,password);
     if(result){
       alert('register successfull');
       this.router.navigateByUrl('');
@@ -50,5 +57,9 @@ export class RegisterComponent implements OnInit {
     }
     
   }
+  else{
+    alert(`invalid entry`);
+  }
+}
 
 }

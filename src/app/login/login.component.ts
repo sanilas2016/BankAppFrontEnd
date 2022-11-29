@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -16,6 +17,14 @@ export class LoginComponent implements OnInit { //(3rd execution)
   pswd='';
   acno='';
 
+  loginForm=this.fb.group({
+
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
+
+  })
+
+
   
 
   //class - collection of properties and methods
@@ -25,7 +34,7 @@ export class LoginComponent implements OnInit { //(3rd execution)
   
   
   // dependency injection
-  constructor(private ds:DataService, private router:Router) {  //(ist execution)
+  constructor(private ds:DataService, private router:Router,private fb:FormBuilder) {  //(ist execution)
     // it automatically invokes when the project is created
   }
 
