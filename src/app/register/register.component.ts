@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
 
 
   registerForm=this.fb.group({
+    
     uname:[''],
     acno:[''],
     pswd:['']
@@ -35,7 +36,7 @@ export class RegisterComponent implements OnInit {
     var username=this.registerForm.value.uname;  //getting value from register form
     var password=this.registerForm.value.pswd;
     var acno=this.registerForm.value.acno;
-    
+
 
     var result=this.ds.register(acno,username,password);
     if(result){
