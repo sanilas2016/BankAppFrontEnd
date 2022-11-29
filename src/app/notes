@@ -68,3 +68,27 @@ Basic concepts
 
     To hold reduntent data  (ng g s serve_name)
 
+5) Angular Directives - To manipulate DOM
+
+    a) Component directives(array)
+
+    b) Structural directives(table)
+
+                1) *ngFor
+
+6) Angular formsModule
+
+    a) Template driven forms(first design html page and cannot do validation)
+
+    b) Model driven forms(First design model in ts file, Easy validation methods)  => Advanced validation
+
+        1) Reactive forms (inclueds form group, array, control)
+
+            We can directly add validation via importing reactive form modules
+
+       
+
+
+
+
+
