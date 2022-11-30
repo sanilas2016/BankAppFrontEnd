@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('register');
     }
     
-  }
+    }
   else{
     alert(`invalid entry`);
   }
