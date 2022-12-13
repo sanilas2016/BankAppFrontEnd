@@ -87,6 +87,23 @@ Basic concepts
 
             We can directly add validation via importing reactive form modules
 
+7) Local Storage
+
+    ==> setItem - To store data
+    ==> getItem - To retrieve data
+    ==> removeItem - To remove data
+
+8) Parent child communication
+
+    parent -> child
+    child -> parent
+
+        eg:
+            Dashboard -> parent
+            delete -> child
+
+
+
        
 
 

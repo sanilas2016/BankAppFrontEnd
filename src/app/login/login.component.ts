@@ -77,9 +77,11 @@ export class LoginComponent implements OnInit { //(3rd execution)
 
   login(){
     // alert("Login Clicked");
-    var acno=this.acno;
-    var pswd=this.pswd;
+    var acno=this.loginForm.value.acno;
+    var pswd=this.loginForm.value.pswd;
     var userDetails=this.ds.userDetails;
+
+    if(this.loginForm.valid){
 
     var result=this.ds.login(acno,pswd);
 
@@ -91,6 +93,10 @@ export class LoginComponent implements OnInit { //(3rd execution)
     else{
       alert('Login failed');
     }
+  }
+  else{
+    alert(`Invalid form`);
+  }
 
   //   if(acno in userDetails){
   //     if(pswd==userDetails[acno].password){
