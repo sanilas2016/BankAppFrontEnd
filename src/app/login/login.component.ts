@@ -79,24 +79,36 @@ export class LoginComponent implements OnInit { //(3rd execution)
     // alert("Login Clicked");
     var acno=this.loginForm.value.acno;
     var pswd=this.loginForm.value.pswd;
-    var userDetails=this.ds.userDetails;
+    // var userDetails=this.ds.userDetails;
 
     if(this.loginForm.valid){
 
-    var result=this.ds.login(acno,pswd);
-
-    if(result){
-
-      alert("Login successfull");
-       this.router.navigateByUrl('dashboard');
+    this.ds.login(acno,pswd)
+    .subscribe((result:any)=>{
+      alert(result.message);
+      this.router.navigateByUrl('dashboard');
+      localStorage.setItem('currentUser',JSON.stringify(result.currentUser));
+      localStorage.setItem('currentacno',JSON.stringify(result.currentacno));
+      localStorage.setItem('token',JSON.stringify(result.token));
+    },
+    result=>{
+      alert(result.error.message);
+      
     }
-    else{
-      alert('Login failed');
-    }
-  }
-  else{
-    alert(`Invalid form`);
-  }
+    )
+
+  //   if(result){
+
+  //     alert("Login successfull");
+  //      this.router.navigateByUrl('dashboard');
+  //   }
+  //   else{
+  //     alert('Login failed');
+  //   }
+  // }
+  // else{
+  //   alert(`Invalid form`);
+  // }
 
   //   if(acno in userDetails){
   //     if(pswd==userDetails[acno].password){
@@ -114,5 +126,6 @@ export class LoginComponent implements OnInit { //(3rd execution)
   }
 
 
+}
 }
 

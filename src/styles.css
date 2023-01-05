@@ -1,5 +1,8 @@
 body{
-    background-color:#ecf0f3 ;
+    /* background-color:#ecf0f3 ; */
+    background-image: url('https://i.postimg.cc/MT37bwZf/money-growht.jpg');
+    background-repeat: no-repeat;
+   background-size: cover;
 }
 
 /* div{

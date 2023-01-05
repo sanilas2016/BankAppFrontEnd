@@ -1,7 +1,7 @@
 
 <button class="btn btn-warning" style="float: right;" (click)="logout()">Logout</button>
 <button class="btn btn-danger" style="float: right; margin-right: 10px;" (click)="delete()">Delete</button><br>
-<app-delete [item]="acno" (onCancel)="onCancel()"></app-delete>  
+<app-delete [item]="acno" (onCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>  
 <!-- onCancel -> user defined event -->
 
 

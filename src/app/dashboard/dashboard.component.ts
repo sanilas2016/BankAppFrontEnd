@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit {
   amount1="";
 
   user="";
+  
 
   sdate:any;
 
@@ -40,36 +42,50 @@ export class DashboardComponent implements OnInit {
   })
 
   constructor(private ds:DataService,private fb:FormBuilder,private router:Router) {
-    this.user=this.ds.currentUser;
+    if(localStorage.getItem('currentUser')){
+      this.user=JSON.parse(localStorage.getItem('currentUser')||'');
+    }
+    
     this.sdate=new Date();
    }
 
   ngOnInit(): void {
-    if(!localStorage.getItem('currentAcno')){
-      alert(`plese login`);
+    if(!localStorage.getItem('currentUser')){
+      alert(`Please login first`);
       this.router.navigateByUrl('');
     }
+    
   }
 
   deposit(){
     var acno=this.depositForm.value.acno;
     var pswd=this.depositForm.value.pswd;
     var amount=this.depositForm.value.amount;
+    
 
     if(this.depositForm.valid){
+    this.ds.deposit(acno,pswd,amount)
+    .subscribe((result:any)=>{
 
-    const result=this.ds.deposit(acno,pswd,amount);
-    if(result){
-        alert(`${amount} is credited...Available balance is ${result}` );
+      alert(result.message);
+
+    },
+    result=>{
+      alert(result.error.message);
     }
-else{
-  alert(`Transaction error`);
-}
-    }
-    else{
-      alert(`Invalid transaction`);
-    }
+    )
+//     if(result){
+//         alert(`${amount} is credited...Available balance is ${result}` );
+//     }
+// else{
+//   alert(`Transaction error`);
+// }
+//     }
+//     else{
+//       alert(`Invalid transaction`);
+//     }
   }
+}
   withdraw(){
     var acno=this.withdrawForm.value.acno1;
     var pswd=this.withdrawForm.value.pswd1;
@@ -78,31 +94,56 @@ else{
     if(this.withdrawForm.valid){
 
 
-    const result=this.ds.withdraw(acno,pswd,amount);
-    if(result){
-        alert(`${amount} is debited...Available balance is ${result}` );
-    }
-    else{
-      alert(`Transaction error`);
-    }
-        }
-        else{
-          alert(`Invalid transaction`);
-        }
+    this.ds.withdraw(acno,pswd,amount)
+    .subscribe((result:any)=>{
+
+      alert(result.message);
+    },
+    result=>{
+      alert(result.error.message);
+    })
+    // if(result){
+    //     alert(`${amount} is debited...Available balance is ${result}` );
+    // }
+    // else{
+    //   alert(`Transaction error`);
+    // }
+    //     }
+    //     else{
+    //       alert(`Invalid transaction`);
+    //     }
 }
+  }
 
 logout(){
-  localStorage.removeItem('currentAcno');
+  localStorage.removeItem('currentacno');
   localStorage.removeItem('currentUser');
+  localStorage.removeItem('token');
   this.router.navigateByUrl('');
 }
 
+// delete(){
+//     this.acno=JSON.parse(localStorage.getItem('currentAcno')||'');
+// }
 delete(){
-    this.acno=JSON.parse(localStorage.getItem('currentAcno')||'');
+  this.acno=JSON.parse(localStorage.getItem('currentacno')||'')
 }
 
 onCancel(){
   this.acno='';
+}
+
+onDelete(event:any){
+  // alert(event)
+  this.ds.deleteAcc(event)
+  .subscribe((result:any)=>{
+    alert(result.message)
+    // this.router.navigateByUrl('');
+    this.logout()
+  },
+  result=>{
+    alert(result.error.message)
+  })
 }
 
 }
