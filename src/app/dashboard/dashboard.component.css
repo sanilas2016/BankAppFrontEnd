@@ -1,3 +1,10 @@
+body{
+    /* background-color:#ecf0f3 ; */
+    background-image: url('https://w10.naukri.com/mailers/2021/naukri-learning/oct/27oct/What-is-Consumer-Banking.jpg');
+    background-repeat: no-repeat;
+   background-size: cover;
+}
+
 #child1{
     text-align: center; 
     float: left;

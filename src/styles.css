@@ -1,9 +1,19 @@
 body{
     /* background-color:#ecf0f3 ; */
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7) ),url('https://w10.naukri.com/mailers/2021/naukri-learning/oct/27oct/What-is-Consumer-Banking.jpg');
+    
+    background-repeat: no-repeat;
+   background-size: cover;
+   color: white;
+   
+}
+
+/* body{
+   
     background-image: url('https://i.postimg.cc/MT37bwZf/money-growht.jpg');
     background-repeat: no-repeat;
    background-size: cover;
-}
+} */
 
 /* div{
     width: 400px;

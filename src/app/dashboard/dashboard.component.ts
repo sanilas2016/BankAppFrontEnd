@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit {
   constructor(private ds:DataService,private fb:FormBuilder,private router:Router) {
     if(localStorage.getItem('currentUser')){
       this.user=JSON.parse(localStorage.getItem('currentUser')||'');
+      this.user=this.user.toUpperCase()
     }
     
     this.sdate=new Date();
